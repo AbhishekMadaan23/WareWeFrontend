@@ -31,7 +31,7 @@ const FetchingSingleUser = () => {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/user/${userId}`
+        `https://ware-we-server.vercel.app/api/user/${userId}`
       );
       setUserData(response.data);
       setError(null);

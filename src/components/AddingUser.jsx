@@ -39,7 +39,7 @@ const AddingUser = () => {
       address: e.target.address.value,
     };
     try {
-      await axios.post("http://localhost:5000/api/user", newUser);
+      await axios.post("https://ware-we-server.vercel.app/api/user", newUser);
       alert("User added successfully");
     } catch (error) {
       console.error("Error adding user:", error);

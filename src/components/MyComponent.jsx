@@ -46,7 +46,9 @@ const MyComponent = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/user");
+      const response = await axios.get(
+        "https://ware-we-server.vercel.app/api/user"
+      );
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -55,7 +57,7 @@ const MyComponent = () => {
 
   const addData = async (newData) => {
     try {
-      await axios.post("http://localhost:5000/api/user", newData);
+      await axios.post("https://ware-we-server.vercel.app/api/user", newData);
       // Refresh data after adding
       fetchData();
     } catch (error) {
@@ -65,7 +67,10 @@ const MyComponent = () => {
 
   const updateData = async (id, updatedData) => {
     try {
-      await axios.put(`http://localhost:5000/api/user/${id}`, updatedData);
+      await axios.put(
+        `https://ware-we-server.vercel.app/api/user/${id}`,
+        updatedData
+      );
       // Refresh data after updating
       fetchData();
     } catch (error) {
@@ -75,7 +80,7 @@ const MyComponent = () => {
 
   const deleteData = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/user/${id}`);
+      await axios.delete(`https://ware-we-server.vercel.app/api/user/${id}`);
       // Refresh data after deletion
       fetchData();
     } catch (error) {
@@ -92,6 +97,7 @@ const MyComponent = () => {
           {data.map((item) => (
             <DataDiv key={item._id}>
               <p>{item.username}</p>
+              <p>{item._id}</p>
               <p>{item.email}</p>
               <p>{item.phone}</p>
               <p>{item.address}</p>
